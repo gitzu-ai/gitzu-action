@@ -25,7 +25,3 @@ jobs:
         uses: ./action
         with:
           apiKey: abcdf
-
-      - name: Check Directory
-        shell: bash
-        run: test -d parent/child

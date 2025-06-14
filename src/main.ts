@@ -16,7 +16,7 @@ try {
   }
   
   console.log(messages);
-  logInfo(apiKey);
+  logInfo(`hello! ${apiKey}`);
 } catch (err) {
   logError(err);
   process.exitCode = 1;
