@@ -16,14 +16,13 @@ jobs:
       - name: Checkout Action
         uses: actions/checkout@v4.2.2
         with:
-          path: mkdir-action
+          path: action
           sparse-checkout: |
             action.yml
             dist
           sparse-checkout-cone-mode: false
-
       - name: Create Directory
-        uses: ./
+        uses: ./action
         with:
           apiKey: abcdf
 
