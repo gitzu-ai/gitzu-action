@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "pnpm rollup -c && git diff --exit-code dist",
     "test": "vitest run"
   },
   "dependencies": {
