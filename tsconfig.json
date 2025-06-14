@@ -1,7 +1,0 @@
-{
-  "extends": "@tsconfig/node20",
-  "compilerOptions": {
-    "module": "node16",
-    "noEmit": true
-  }
-}
