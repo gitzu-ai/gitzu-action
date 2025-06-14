@@ -1,9 +1,8 @@
-import fsPromises from "node:fs/promises";
-import { getInput, logError } from "gha-utils";
+import { getInput, logError, logInfo } from "gha-utils";
 
 try {
-  const path = getInput("path");
-  await fsPromises.mkdir(path, { recursive: true });
+  const apiKey = getInput("apiKey");
+  logInfo(apiKey);
 } catch (err) {
   logError(err);
   process.exitCode = 1;

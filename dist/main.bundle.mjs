@@ -1,5 +1,5 @@
-import fsPromises from 'node:fs/promises';
 import 'node:fs';
+import 'node:fs/promises';
 import os from 'node:os';
 import 'node:path';
 
@@ -15,6 +15,14 @@ function getInput(name) {
 }
 
 /**
+ * Logs an information message in GitHub Actions.
+ *
+ * @param message - The information message to log.
+ */
+function logInfo(message) {
+    process.stdout.write(`${message}${os.EOL}`);
+}
+/**
  * Logs an error message in GitHub Actions.
  *
  * @param err - The error, which can be of any type.
@@ -25,8 +33,8 @@ function logError(err) {
 }
 
 try {
-    const path = getInput("path");
-    await fsPromises.mkdir(path, { recursive: true });
+    const apiKey = getInput("apiKey");
+    logInfo(apiKey);
 }
 catch (err) {
     logError(err);

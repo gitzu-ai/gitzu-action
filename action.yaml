@@ -1,0 +1,13 @@
+name: Gitzu Code Review
+author: Gitzu
+description: Perform a code review by Gitzu.
+branding:
+  icon: folder-plus
+  color: black
+inputs:
+  apiKey:
+    description: API key to use.
+    required: true
+runs:
+  using: node20
+  main: dist/main.bundle.mjs

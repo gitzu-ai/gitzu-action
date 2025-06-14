@@ -1,34 +1,6 @@
-import { afterAll, beforeAll, beforeEach, expect, it, vi } from "vitest";
-import fsPromises from "node:fs/promises";
-import os from "node:os";
+import { expect, it } from "vitest";
 
-beforeAll(() => {
-  process.chdir(os.tmpdir());
-});
-
-beforeEach(async () => {
-  await fsPromises.rm("path", { recursive: true, force: true });
-  vi.resetModules();
-});
-
-it("should create a directory recursively", async () => {
-  process.env.INPUT_PATH = "path/to/new/directory";
+it("should run a directory recursively", async () => {
   await import("./main.js");
-
-  await fsPromises.access("path/to/new/directory");
   expect(process.exitCode).toBeUndefined();
-});
-
-it("should fail to create a directory because a file already exists", async () => {
-  await fsPromises.writeFile("path", "a data");
-
-  process.env.INPUT_PATH = "path/to/new/directory";
-  await import("./main.js");
-
-  expect(process.exitCode).toBe(1);
-  process.exitCode = undefined;
-});
-
-afterAll(async () => {
-  await fsPromises.rm("path", { recursive: true, force: true });
 });
