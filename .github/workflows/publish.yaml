@@ -1,0 +1,25 @@
+name: Publish
+
+on:
+  release:
+    types: [published, edited]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - name: Setup pnpm
+        uses: threeal/setup-pnpm-action@v1.0.0
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Action
+        run: pnpm rollup -c && git diff --exit-code dist
+      - uses: JasonEtco/build-and-tag-action@v2
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

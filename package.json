@@ -1,5 +1,7 @@
 {
-  "name": "root",
+  "name": "@gitzu/review",
+  "version": "0.0.1",
+  "main": "dist/main.bundle.mjs",
   "private": true,
   "type": "module",
   "scripts": {
