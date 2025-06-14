@@ -23,9 +23,9 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Create Directory
-        uses: ./mkdir-action
+        uses: ./
         with:
-          path: parent/child
+          apiKey: abcdf
 
       - name: Check Directory
         shell: bash

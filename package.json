@@ -8,6 +8,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@anthropic-ai/claude-code": "^1.0.24",
     "gha-utils": "^0.4.1"
   },
   "devDependencies": {
